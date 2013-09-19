@@ -1,0 +1,17 @@
+fn = 'bigG.dat'
+
+set key noauto
+
+set title 'Big G over time; complete record after 2000'
+
+set xlabel 'time (yr)'
+set ylabel 'G (N-m^2/kg^2)'
+
+pl \
+	fn index 0 u ($1/12.0+$2/30.0+$3):4:5 w yerr lt 1 lw 2 lc -1 tit 'CODATA',\
+	fn index 1 u ($1/12.0+$2/30.0+$3):4:5 w yerr lt 3  tit 'experiments',\
+	fn index 2 u ($1/12.0+$2/30.0+$3):4:5 w yerr lt 2  tit 'Quinn Servo',\
+	fn index 3 u ($1/12.0+$2/30.0+$3):4:5 w yerr lt 4  tit 'Quinn Free',\
+	fn index 1 u ($1/12.0+$2/30.0+$3):4:5 w yerr lt 3 ,\
+	fn index 4 u ($1/12.0+$2/30.0+$3):4:($4+$5):($4-$6) w yerr lt 3
+	
