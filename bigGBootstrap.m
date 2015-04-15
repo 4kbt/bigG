@@ -3,7 +3,7 @@ clear
 d = load('codata.dat');
 
 %Debugging line for Birge-ratio check
-%d(:,5) = d(:,5)*4.37;
+d(:,5) = d(:,5)*4.37;
 
 NBootstraps = 10000;
 
@@ -31,7 +31,7 @@ GMean = mean( bO(:,1) );
 GStd  = std(  bO(:,1) );
 
 %Make a histogram
-hist( bO(:,1) , sqrt(NBootstraps));
+[bsHistN bsHistX] = hist( bO(:,1) , sqrt(NBootstraps));
 
 
 'Stephan cross-check'
@@ -54,10 +54,16 @@ lsa_sig * lsa_birge_ratio / lsa_mean * 1e6
 OrigMean = uncertaintyOverTime( d(:,4), d(:,5) )(end,:)
 
 'Bootstrapped result'
-[GMean GStd]
+BootstrapResult = [GMean GStd]
 
 'Bootstrapped relative uncertainty, ppm'
 GStd/GMean * 1e6
 
 'Bootstrapped X^2'
 mean( bO(:,3) )
+
+bsHist = [transpose(bsHistX) transpose(bsHistN)];
+
+save 'BootstrapResult.dat' BootstrapResult
+save 'BirgeRatioedTraditionalAverage.dat' OrigMean
+save 'BootstrapHistogram.dat' bsHist
