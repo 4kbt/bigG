@@ -5,7 +5,7 @@ PLOTINPUTS:= BootstrapResult.dat BirgeRatioedTraditionalAverage.dat BootstrapHis
 CODATA:= CODATABootstrapComparison
 
 
-all : 
+all : $(CODATA).eps 
 
 $(PLOTINPUTS) : bigGBootstrap.m codata.dat mlib/*
 	$(OCT) bigGBootstrap.m
