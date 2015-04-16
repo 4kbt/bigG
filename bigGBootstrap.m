@@ -5,7 +5,7 @@ d = load('RawData/codata.dat');
 %Debugging line for Birge-ratio check
 d(:,5) = d(:,5)*4.37;
 
-NBootstraps = 100000;
+NBootstraps = 10000;
 
 %initialize bootstrap-result vector
 bO =[];
