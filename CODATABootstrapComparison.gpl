@@ -1,10 +1,10 @@
 set term postscript enhanced portrait solid color  
-set output 'CODATABootstrapComparison.eps'
+set output 'plots/CODATABootstrapComparison.eps'
 
-fn = 'codata.dat'
-CDfn = 'CODATA2010Recommendation.dat'
-BSfn = 'BootstrapResult.dat'
-BRfn = 'BirgeRatioedTraditionalAverage.dat'
+fn = 'RawData/codata.dat'
+CDfn = 'RawData/CODATA2010Recommendation.dat'
+BSfn = 'results/BootstrapResult.dat'
+BRfn = 'results/BirgeRatioedTraditionalAverage.dat'
 
 set key noauto
 
@@ -42,5 +42,5 @@ unset label 3
 set title 'G values bootstrapped from experiments'
 
 pl [-400:400]\
-	'BootstrapHistogram.dat' u (($1/CD2010 - 1) * 1e6):2 w boxes lt 3 
+	'results/BootstrapHistogram.dat' u (($1/CD2010 - 1) * 1e6):2 w boxes lt 3 
 unset multiplot

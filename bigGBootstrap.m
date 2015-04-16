@@ -1,6 +1,6 @@
 clear 
 
-d = load('codata.dat');
+d = load('RawData/codata.dat');
 
 %Debugging line for Birge-ratio check
 d(:,5) = d(:,5)*4.37;
@@ -64,6 +64,6 @@ mean( bO(:,3) )
 
 bsHist = [transpose(bsHistX) transpose(bsHistN)];
 
-save 'BootstrapResult.dat' BootstrapResult
-save 'BirgeRatioedTraditionalAverage.dat' OrigMean
-save 'BootstrapHistogram.dat' bsHist
+save 'results/BootstrapResult.dat' BootstrapResult
+save 'results/BirgeRatioedTraditionalAverage.dat' OrigMean
+save 'results/BootstrapHistogram.dat' bsHist

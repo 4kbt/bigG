@@ -1,7 +1,7 @@
 OCT:= octave -p mlib
 
 
-PLOTINPUTS:= BootstrapResult.dat BirgeRatioedTraditionalAverage.dat BootstrapHistogram.dat
+PLOTINPUTS:= results/BootstrapResult.dat results/BirgeRatioedTraditionalAverage.dat results/BootstrapHistogram.dat
 CODATA:= CODATABootstrapComparison
 
 
@@ -10,5 +10,5 @@ all : $(CODATA).eps
 $(PLOTINPUTS) : bigGBootstrap.m codata.dat mlib/*
 	$(OCT) bigGBootstrap.m
 
-$(CODATA).eps: $(CODATA).gpl $(PLOTINPUTS) codata.dat CODATA2010Recommendation.dat
+plots/$(CODATA).eps: $(CODATA).gpl $(PLOTINPUTS) RawData/codata.dat RawData/CODATA2010Recommendation.dat
 	gnuplot $(CODATA).gpl

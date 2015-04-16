@@ -1,4 +1,4 @@
-fn = 'bigG.dat'
+fn = 'RawData/bigG.dat'
 
 set key noauto
 
