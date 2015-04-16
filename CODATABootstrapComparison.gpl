@@ -12,7 +12,7 @@ set title 'Comparing CODATA 2010, Birge-ratio weighted average, and Bootstrappin
 
 set multiplot layout 2,1
 
-set xlabel '( G / (CODATA2010 G) - 1 ) * 1e6'
+set xlabel '( G / (G_{2010}) - 1 ) x 10^6'
 
 set key noauto
 
